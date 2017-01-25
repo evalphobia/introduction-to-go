@@ -667,35 +667,35 @@ _注_: もしこのスライドを [[https://go-talks.golang.org/][gotalks.golan
 
 このセクションでは、シンプルなオンラインコードエディタである Go Playground を使って演習を行います。
 
-* Coding style
+* コーディングスタイル
 
-All Go code is formatted according to a single style guide which is enforced with a tool called `gofmt`
+全てのGoコードは `gofmt` と呼ばれるツールの実行によって、単一のスタイルガイドに沿ってフォーマットされます
 
-Having one single style that all Go code is formatted in improves readability and avoids the time wasted arguing about code formatting.
+全てのGoコードが一つのスタイルによってフォーマットされていることで、読みやすくなり、コードフォーマットについて口論して時間を無駄にすることを避けることができます。
 
-"Gofmt's style is no one's favorite, yet gofmt is everyone's favorite."
+「Gofmtのスタイルは誰も気に入ってはいない、けれど gofmt は誰もが好きだ」
 .caption [[https://go-proverbs.github.io/][Go Proverb]].
 
-The Go playground can format your code according to the canonical Go style.
+Go playground は標準的なGoのスタイルに沿って、あなたのコードをフォーマットしてくれます
 
-- Follow [[https://play.golang.org/p/0Hz57BQdTA][this link]] and press the *Format* button to see this in action.
+- [[https://play.golang.org/p/0Hz57BQdTA][このリンク]] の *Format* ボタンを押して、実際にこれを見てみましょう
 
-* Zero value
+* ゼロ値
 
-In previous examples we've written code like this
+前の例で、このようなコードを書きました
 
  var name = "go"
  var counter = 1
 
-Which both _declares_ and _initalises_ the variables `counter` and `name` respectively. What happens if we have code like this?
+`name` と `counter` 変数の _宣言_ と _初期化_ をそれぞれしています。このようなコードでは何が起こるでしょうか？
 
 .code src/zerovalue/zerovalue1/main.go
 
-What will this print?
+何が出力されましたか？
 
-- Follow [[https://play.golang.org/p/jioUB0t_LW][this link]] and press the *Run* button to see this in action.
+- [[https://play.golang.org/p/jioUB0t_LW][このリンク]] の *Run* ボタンを押して、実際にこれを見てみましょう
 
-* Zero value (cont.)
+* ゼロ値（続き）
 
 In Go, there is no unitialised memory. The Go runtime will always ensure that the memory allocated for each variable is initalised before use.
 
