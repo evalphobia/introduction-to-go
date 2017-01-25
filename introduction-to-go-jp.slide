@@ -697,55 +697,55 @@ Go playground は標準的なGoのスタイルに沿って、あなたのコー�
 
 * ゼロ値（続き）
 
-In Go, there is no unitialised memory. The Go runtime will always ensure that the memory allocated for each variable is initalised before use.
+Goでは、初期化されていないメモリはありません。Goランタイムは各変数に割り当てられたメモリが、使用前から初期化されていることを常に保証します
 
-If we write something like
+もしこのように書くと、
 
  var name string
  var counter int
 
-Then the memory assigned to the variables `name` and `counter` will be zeroed, as we have not provided an _initaliser_.
+変数 `name` と `counter` に割り当てられたメモリは、 _初期値_ を提供していないためゼロになります
 
-- The value of `name` will be `""` because that is the value of a string with zero length.
-- The value of `counter` will be zero, because that is the value of an `int` if we wrote `0` to its memory location.
+- `name` の値は、長さゼロの文字列の値である `""` になります
+- `counter` の値は、0 になります。なぜならそのメモリの位置に0を入れた場合、それが `int` の値になるためです。
 
-* Zero value (cont.)
+* ゼロ値（続き）
 
-Every type in Go has an associated _zero_value_. The value of that variable if we wrote zeros to its memory.
+Goの全ての型は、関連する _ゼロ値_ を持っています。その変数のメモリへゼロを入れた場合の値です
 
-- The zero value for integer types: `int`, `int8`, `uint`, `uint64`, etc, is `0`.
-- The zero value for floating point types: `float32`, `float64`, `complex128`, etc, is `0.0`.
-- The zero value for arrays is the zero value for each element, ie. `[3]int` is `0`, `0`, `0`.
-- The zero value for slices is `nil`.
-- The zero value for structs is the zero value for each field.
+- 整数型のゼロ値： `int`, `int8`, `uint`, `uint64`, etc... は `0` です
+- 浮動小数点型のゼロ値： `float32`, `float64`, `complex128`, etc... は `0.0` です
+- 配列のゼロ値はその要素のゼロ値であり、 例えば `[3]int` は `0`, `0`, `0` です
+- スライスのゼロ値は `nil` です
+- 構造体のゼロ値は、全てのフィールドがゼロ値です
 
-* Equality
+* 等価
 
-As Go is a strongly typed language, for two variables to be equal, both their _type_and_their_value_ must be equal.
+Goは強い型付けの言語なので、2つの変数が等しくなるためには、両方の _型と値_ が同一でなければなりません
 
-Trying to compare two variables of _different_ types is detected at runtime.
+_異なる_ 型の2つの変数を比較しようとすると実行時に検出されます
 
 .code src/equality/equality1/main.go
 
-- Follow [[https://play.golang.org/p/LwiJm2xuXK][this link]] and press the *Run* button.
-- Fix the program by declaring `x` and `y` to be the _same_ type.
-- Press the *Run* button and confirm the program now prints `true`.
+- [[https://play.golang.org/p/LwiJm2xuXK][このリンク]] の *Run* ボタンを押してください
+- 宣言された `x` と `y` が _同じ_ 型となるようにプログラムを修正してください
+- *Run* ボタンを押して、プログラムが `true` を出力するようになったことを確かめてください
 
-* Type conversions
+* 型変換
 
-Sometimes you have variables of different integer types, you can _convert_ from one type to another using a conversion _expression_.
+異なる整数型の変数があった際に、 一方の型からもう一方の型へと、 _変換式_ を用いて _変換_ することができます
 
-The expression `T(v)` converts the value `v` to the type `T`.
+`T(v)` 式は `v` という値を `T` 型へと変換します
 
 .code -edit src/types/types2/main.go
 
-In this example the assignment of `y`=`x` fails because `x` and `y` are different integer types.
+この例で `y`=`x` という代入は、 `x` と `y` が異なる整数型なので失敗します。
 
-- Follow [[https://play.golang.org/p/wvG41C0lH4][this link]] and press the *Run* button.
-- Fix the program by _converting_ `x` to an `int` with `int(x)`.
-- Press the *Run* button and confirm the program now prints `700`.
+- [[https://play.golang.org/p/wvG41C0lH4][このリンク]] の *Run* ボタンを押してください
+- `int(x)` で `x` を `int` へと _変換_ してプログラムを修正してください
+- *Run* ボタンを押して、プログラムが `700` を出力するようになったことを確かめてください
 
-* Type conversions (cont.)
+* 型変換（続き）
 
 If you have variables of different _widths_, you can _convert_ from one type to another.
 
