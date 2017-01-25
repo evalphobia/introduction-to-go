@@ -531,136 +531,141 @@ Goは２つの整数型があり、
 
 * func
 
-`func` 宣言で、独自の関数を宣言することができます。
-関数名は `const` や `var` 同様に、有効な識別子でなければなりません。
+`func` 宣言で、独自の関数を宣言することができます
+関数名は `const` や `var` 同様に、有効な識別子でなければなりません
 
 .play -edit src/functions/functions2/main.go /START OMIT/,/END OMIT/
 
-このプログラムは２つの関数 `main` と `hello` を宣言しています。
+このプログラムは２つの関数 `main` と `hello` を宣言しています
 
 - `func`hello` の `println("こんにちは")` 文のコメントを外してください
 - *Run* ボタンを押してプログラムがコンパイルされ、 こんにちは が3回出力されることを確かめてください
 
-_注_： `println` は _組み込み_ の関数で、宣言する必要がありません。
+_注_： `println` は _組み込み_ の関数で、宣言する必要がありません
 
 * 関数の引数
 
-関数を便利にするためには、関数へ引数を渡すことが必要になるでしょう。
+関数を便利にするためには、関数へ引数を渡すことが必要になるでしょう
 
-To pass an argument to a function, the type of the argument and the type of the function's _formal_parameter_ must be the same.
+関数へ引数を渡すには、引数の型と _仮引数_ の型が同じでなくてはなりません
 
 .play -edit src/functions/functions3/main.go /START OMIT/,/END OMIT/
 
-In this program the type of the argument passed to `hello` does not match the type of the `name` parameter.
+このプログラムでは、 `hello` に渡される引数と `name` パラメータの型が一致していません
 
-- Fix the declaration of `hello` so that the type of the parameter matches the type of the argument provided.
-- Press *Run* and check the program compiles and prints `こんにちは`David`.
+- パラメータと引数の型が一致するように、宣言された `hello` を修正してください
+- *Run* ボタンを押してプログラムがコンパイルされ、 `こんにちは`David` が出力されることを確かめてください
 
-* Packages
+* パッケージ
 
-A package is the unit in which software is shared and reused in Go. All Go code is arranged into packages.
+パッケージとは、Goで共有され再利用されるソフトウェアの単位です。すべてのGoコードはパッケージにまとめられています
 
-Each source file in a package must begin with the same `package` declaration.
-
-A package's name must be a valid identifier, just like `const`, `var`, and `func`.
+同じパッケージ内の各ソースファイルは、同じ `package` 宣言で始まらなければなりません
+パッケージ名は `const`, `var` や `func` のように有効な識別子でなければなりません
 
 .play -edit src/packages/packages1/main.go
 
-This is the same example as the previous slide, revealing the `package` declaration.
+これは前のスライドと同一の例で、`package`宣言を示しています
 
-`package`main` is the name of the package which contains the entry point to your program, `func`main`.
+`package`main` はあなたのプログラムのエントリポイントの `func`main` を含むパッケージの名前になります
 
-* main packages
+* main パッケージ
 
-This program has the wrong `package` declaration.
+この間違ったパッケージ宣言をしています
 
 .play -edit src/packages/packages2/main.go
 
-- Press *Run* and observe the compile error.
-- Change the `package` declaration to make the program compile.
-- Press *Run* to check that program prints its greeting.
+- *Run* ボタンを押してコンパイルエラーを見てみてください
+- プログラムがコンパイルされるように `package` 宣言を変更してください
+- *Run* ボタンを押してプログラムがあいさつを出力することを確かめてください
 
-* Import
+* インポート
 
-The final declaration we'll cover in this section is the _import_ declaration.
+このセクションでの最後の宣言は _import_ 宣言です
 
-The `import` declaration allows you to use code from other _packages_ into your package.
+`import` 宣言で、他の _パッケージ_ からあなたのパッケージのコードを使うことができます。
 
-When you `import` a package, the _public_ types, functions, variables, types, and constants, are available with a prefix of the package's name.
+パッケージを `import 'すると、_public_型、関数、変数、型、および定数がパッケージ名の接頭辞とともに使用できます。
 
- time.Now	// denotes the Now function in package time
+パッケージを `import` するとパッケージ名のプリフィクスとともに、 _公開型_ 、 関数、変数、型、そして定数を利用することができます。
 
-Note that
+ time.Now	// timeパッケージのNow関数を示しています
+
+* インポート（続き）
+
+留意点として、
 
  import "fmt"
  import "time"
 
-and
+と、
 
  import (
          "fmt"
          "time"
  )
 
-both import the `fmt` and `time` packages. The syntax is different, but they are equivalent.
+両方とも `fmt` と `time` パッケージをインポートしています。シンタックスは違いますが、両方とも同じです。
 
-* Import (cont.)
+* インポート（続き）
 
-The `import` declaration must appear _after_ the `package` declaration, but before any `type`, `const`, `var`, or `func` declarations.
+`import` 宣言はパッケージ宣言の _後_ で、 `type`, `const`, `var`, or `func` 宣言の前でなくてはなりません。
 
 .play -edit src/imports/imports1/main.go
 
-This program does not compile as the `import` declaration is in the wrong place.
 
-- Move the `var`now`=`time.Now()` declaration _below_ the `import` declaration.
-- Press *Run* to check that program prints the current time.
+このプログラムは `import` 宣言が間違った場所にあるので、コンパイルされません。
 
-* Import (cont.)
+- `var`now`=`time.Now()` 宣言を `import` 宣言の _下_ へ移してください
+- *Run* ボタンを押してプログラムが現在の時間を出力することを確かめてください
 
-Packages contain both _public_ and _private_ symbols. We also call these _exported_ and _not_exported_, respectively.
+* インポート（続き）
+
+パッケージには _public_ と _private_ の両方のシンボルが含まれています。これらはそれぞれ _公開_(exported)_ と _非公開_(not_exported)_ とも呼ばれます。
 
 .play -edit src/imports/imports2/main.go
 
-This program does not compile as it refers to two _private_ symbols.
+このプログラムは２つの _private_ シンボルを参照しているためコンパイルされません
 
-- Fix the program by using the correct case for `Println` and `Time`.
-- Press *Run* to check that program prints the current time.
+- `Println` と `Time` の正しい大文字小文字を使い、プログラムを修正してください
+- *Run* ボタンを押してプログラムが現在の時間を出力することを確かめてください
 
-_note_: If you are running this slide from [[https://go-talks.golang.org/][gotalks.golang.org]], the time may be reported as `2009-11-10`23:00:00`+0000`UTC`. This is a technical limitation.
+_注_: もしこのスライドを [[https://go-talks.golang.org/][gotalks.golang.org]] で動かしている場合はに、時刻が `2009-11-10`23:00:00`+0000`UTC` として出力されるかもしれません。これは技術的な制限によるものです。
 
-* fmt package
+* fmt パッケージ
 
-Do you remember this program?
+あなたはこのプログラムを覚えていますか？
 
 .play -edit src/imports/imports3/main.go
 
-Here it is again, showing the `func`, `package` and `import` declarations making it a complete Go program.
+ここでもまた、 `func`, `package` そして `import` 宣言が現れ、完全なGoプログラムになっています。
 
-This program also uses the `Println` function from the `fmt` package, which is more capable than the built in `println` function.
+このプログラムは `fmt` パッケージの `Println` 関数も使用しています。これは組み込みの `println` 関数よりも優れています。
 
-- Press *Run* to see how `fmt.Println` prints this output.
+- *Run* ボタンを押して `fmt.Println` がどのように出力をするか見てみてください
 
-* Recap
+* 要約
 
-Now you know the basics of Go!
+あなたはGoの基礎が分かっています！
 
-You've learnt:
+あなたは以下のことを既に学びました：
 
-- How to declare constants and variables
-- How to write `for` loops and use `if`.
-- How types work.
-- How to write your own functions.
-- How packages and `import` statements work.
+- 定数と変数を宣言する方法
+- `for` ループ と `if` の書き方
+- 型の仕組み
+- 独自の関数の書き方
+- パッケージと `import` 
+- How packages and `import` 文の仕組み
 
-Time for a quick break!
+一休みの時間です！
 
-* Advanced Syntax
+* 応用構文
 
-* Advanced Syntax
+* 応用構文
 
-This section builds on the previous by exploring each of the things we learnt in a little more detail.
+このセクションでは、先ほど学んだ事柄のそれぞれについて、もう少し詳しく説明します。
 
-In this section we'll use the Go Playground, a simple online code editor to perform our exercises.
+このセクションでは、シンプルなオンラインコードエディタである Go Playground を使って演習を行います。
 
 * Coding style
 
