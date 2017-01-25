@@ -114,7 +114,7 @@ Go is an opinionated language.
 
 * Basic Syntax
 
-* Basic Syntax 
+* Basic Syntax
 
 In this section we will walk through the basic syntax of a short Go program.
 
@@ -150,7 +150,7 @@ There are six kinds of constants
 - integer constants: `1`, `0`, `-6`, `9999999999999999999`, …
 - floating point constants: `3.14`, `7.5e-2`, …
 - complex number constants (rare): `1`-`0.707i`, …
-- string constants: `"Hello,`東京"`, … 
+- string constants: `"Hello,`東京"`, …
 - rune constants: `'a'`, `'す'`, `'シ'`, `'1'`, …
 - boolean constants: `true`, `false`
 
@@ -162,7 +162,7 @@ To make a constant, we declare one with the `const` keyword.
 
 Whenever you see a *Run* button on a slide, you can execute the code.
 
-- Press the *Run* button now and see what happens. 
+- Press the *Run* button now and see what happens.
 - Press the *Close* button to close the output window.
 
 You can also edit the code right here in the slide.
@@ -227,7 +227,7 @@ They are:
 - `type`: declares a new type.
 - `func`: declares a new function, or method.
 - `package`: declares the package this `.go` source file belongs to.
-- `import`: declares that this package imports declarations from another. 
+- `import`: declares that this package imports declarations from another.
 
 We'll cover each of the remaining five declarations in this section.
 
@@ -239,7 +239,7 @@ You _declare_ a new variable with the `var` declaration.
 
 .play -edit src/variable/variable1/main.go /START OMIT/,/END OMIT/
 
-Just like constants, variable _identifiers_ can be any any valid Unicode word.
+Just like constants, variable _identifiers_ can be any valid Unicode word.
 
 - Press the *Run* button to see the result.
 
@@ -315,7 +315,7 @@ Go supports a limited form of variable post-increment and post-decrement, ie. `x
 
 .play -edit src/increment/increment2/main.go /START OMIT/,/END OMIT/
 
-This program has a syntax error. 
+This program has a syntax error.
 
 - Edit the sample code to correct the error by moving the `i++` statement above the declaration of `var`j`.
 - Press *Run* and check the program compiles and prints the correct answer, 2, 2.
@@ -335,10 +335,10 @@ into one syntax.
 The parts of a `for` statement are:
 
 - init statement: used to initalise the loop variable; `i`=`0`.
-- condition: user to test if the loop is done; `i`<`10`, `true` means keep looping.
-- post statement: user to increment the loop variable; `i++`, `i`=`i`-`1`.
+- condition: used to test if the loop is done; `i`<`10`, `true` means keep looping.
+- post statement: used to increment the loop variable; `i++`, `i`=`i`-`1`.
 
-* Looping (cont.) 
+* Looping (cont.)
 
 Let's practice using loops.
 
@@ -351,7 +351,7 @@ This program counts from `1` to `10`, can you make it print only the _even_ numb
 
 _note_: you do not need to put `(` braces around the `for` condition `)`. In fact, if you do it's a syntax error. Try it.
 
-* Looping (cont.) 
+* Looping (cont.)
 
 Let's practice counting down, this is where you would use a `while` loop in other languages.
 
@@ -604,7 +604,7 @@ both import the `fmt` and `time` packages. The syntax is different, but they are
 
 The `import` declaration must appear _after_ the `package` declaration, but before any `type`, `const`, `var`, or `func` declarations.
 
-.play -edit src/imports/imports1/main.go 
+.play -edit src/imports/imports1/main.go
 
 This program does not compile as the `import` declaration is in the wrong place.
 
@@ -615,7 +615,7 @@ This program does not compile as the `import` declaration is in the wrong place.
 
 Packages contain both _public_ and _private_ symbols. We also call these _exported_ and _not_exported_, respectively.
 
-.play -edit src/imports/imports2/main.go 
+.play -edit src/imports/imports2/main.go
 
 This program does not compile as it refers to two _private_ symbols.
 
@@ -690,7 +690,7 @@ What will this print?
 
 In Go, there is no unitialised memory. The Go runtime will always ensure that the memory allocated for each variable is initalised before use.
 
-If we write something like 
+If we write something like
 
  var name string
  var counter int
@@ -780,8 +780,8 @@ If you've come from a language like Ruby or Python, you're probably wondering if
 
  x := 0
 
-This is what we call a _short_declaration_, which is the same as 
- 
+This is what we call a _short_declaration_, which is the same as
+
  var x int = 0
 
 Short declaration is very common in Go programs, you'll see it everywhere, so let's do some exercises to familarise you with its use.
@@ -808,7 +808,7 @@ This can be also written as
 
 * Slices
 
-The next kind of type to discuss is the _Slice_. 
+The next kind of type to discuss is the _Slice_.
 
 A slice is an ordered collection of values of a _single_ type.
 
@@ -817,9 +817,9 @@ The syntax for declaring a slice variable is very similar to declaring a _scalar
  var i int      // an int called i
  var j []int    // a slice of ints called j
 
-In this example, 
+In this example,
 
-- `i` is a variable of type `int`. 
+- `i` is a variable of type `int`.
 - `j` is a variable of type `[]int`, that is, a slice of `int`.
 
 Slices are very important in Go programs, so we'll spend a bit of time discussing them.
@@ -942,7 +942,7 @@ You can `append` multiple values in one statement, providing they are all the sa
 
 * Subslices
 
-What if we have a large slice, and want to refer to only a part of it. 
+What if we have a large slice, and want to refer to only a part of it.
 
 We call this slicing a slice, or _subslicing_.
 
@@ -1116,7 +1116,7 @@ Instead we can use the other condition statement, `switch`.
 
 * Switch (cont.)
 
-`switch` can be used 
+`switch` can be used
 
 .play -edit src/switch/switch1/main.go /START OMIT/,/END OMIT/
 
@@ -1194,7 +1194,7 @@ The official installation documentation is here:
 
 The current version of Go is 1.7.4.
 
-- New minor releases, Go 1.8, Go 1.9, etc, ship twice a year. 
+- New minor releases, Go 1.8, Go 1.9, etc, ship twice a year.
 - Historically 2–4 bug fix or security releases occur during each six month period.
 
 * Installing Go on OS X
@@ -1249,8 +1249,8 @@ to the directory
 
  /usr/local
 
-and add 
- 
+and add
+
  /usr/local/go/bin
 
 to your `$PATH`.
@@ -1261,7 +1261,7 @@ to your `$PATH`.
 
 Your Go installation comes with a tool we call the `go` tool, because that's its name.
 
-The `go` tool can 
+The `go` tool can
 
 - compile your programs
 - run your tests
@@ -1288,7 +1288,7 @@ Will import the code for the `profile` package stored in
 
 * go build
 
-Go is a compiled language, so the usual work flow is 
+Go is a compiled language, so the usual work flow is
 
 - Edit code
 - `go`build`
@@ -1393,7 +1393,7 @@ As we work through the katas, we'll visit some more of the Go standard library.
 
 * String formatting
 
-As a warm up, let's do a small kata together. 
+As a warm up, let's do a small kata together.
 
 The code for this kata is in `$GOPATH/src/katas/sprintf`
 
@@ -1403,7 +1403,7 @@ If you get stuck, the answers are in `$GOPATH/src/katas/sprintf/answers_test.go`
 
 So far we've discussed two kinds of types; _primitive_ types and _slice_ types.
 
-Go supports what we call _compound_ types, that is, types that are _composed_ of other types. 
+Go supports what we call _compound_ types, that is, types that are _composed_ of other types.
 
 These are called _struct_ (for _structure_) types. We declare a struct like this:
 
@@ -1453,8 +1453,8 @@ Go supports polymorphism, _has_a_ (not _is_a_) with _interfaces_.
 
 An interface declaration looks like this:
 
- type Reader interface { 
-          Read(buf []byte) (int, error) 
+ type Reader interface {
+          Read(buf []byte) (int, error)
  }
 
 This is the [[https://golang.org/pkg/io/#Reader][`io.Reader`]] interface declaration from the [[https://golang.org/pkg/io/][`io`]] package.
@@ -1476,7 +1476,7 @@ To familarise you with the `io.Reader` implementations available in the `io` pac
 
 * Error handling
 
-You probably spotted that lots of methods and functions in the Go standard library return a value of type `error`. 
+You probably spotted that lots of methods and functions in the Go standard library return a value of type `error`.
 
 `error` is a _predeclared_type_, just like `int`, `string`, etc.
 
@@ -1486,7 +1486,7 @@ You probably spotted that lots of methods and functions in the Go standard libra
          Error() string
  }
 
-Any type that has an `Error()`string` method, _implements_ the `error` interface.         
+Any type that has an `Error()`string` method, _implements_ the `error` interface.
 
 * Nil
 
@@ -1539,7 +1539,7 @@ The code for this kata is in `$GOPATH/src/katas/linecount`
 
 Complete the program so it reads the number of lines sent to it via stdin.
 
- % cat testdata/moby.txt | ./linecount 
+ % cat testdata/moby.txt | ./linecount
  22659
 
 * Handling multiple files
@@ -1585,7 +1585,7 @@ Using the `net/http` package is very straight forward:
  if err != nil {
          // handle error
  }
- 
+
 `resp` is a [[https://golang.org/pkg/net/http/#Response][`http.Response`]] structure, which has lots of interesting fields.
 
 Let's write a simple HTTP client that can fetch HTTP URLs.
@@ -1612,7 +1612,7 @@ The [[https://golang.org/pkg/encoding/json/][`encoding/json`]] package can decod
 
 Let's use this to write a program that will tell us our public IP address.
 
- % ./whatismyip 
+ % ./whatismyip
  My IP address is: 125.203.122.114
 
 The code for this kata is in `$GOPATH/src/katas/whatismyip`
@@ -1663,7 +1663,7 @@ it takes two parameters
  mux := http.NewServeMux()
 
 `http.NewServeMux` returns a `ServeMux`, what we usually call a HTTP router.
- 
+
 * Writing http servers (cont.)
 
  mux.HandleFunc("/", index)
@@ -1686,7 +1686,7 @@ If a package's import path follows the `go`get` convention, `go`get` knows how t
 
 We'll use `go`get` to fetch the source for `gorilla/mux`, a more advanced HTTP router
 
- % go get github.com/gorilla/mux 
+ % go get github.com/gorilla/mux
  % ls $GOPATH/src/github.com/gorilla/mux
  LICENSE                 context_gorilla.go      context_native_test.go  mux_test.go
  README.md               context_gorilla_test.go doc.go                  old_test.go
